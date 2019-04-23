@@ -1,9 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group 'com.yasmin.hairsalon'
 version '1.0-SNAPSHOT'
+mainClassName = 'App'
 
 sourceCompatibility = 1.8
 
