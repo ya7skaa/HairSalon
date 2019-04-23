@@ -19,11 +19,30 @@ public class StylistTest {
         }
     }
 
-    // testing save method
+    // testing the save method
     @Test
     public void savingStylist_true() {
-        Stylist stylist = new Stylist("Alpha","M","500");
+        Stylist stylist = new Stylist("Zak","F","49");
         stylist.save();
-        assertEquals("Alpha", stylist.getName());
+        assertEquals("Sum", stylist.getName());
     }
+
+    // testing for update method
+    @Test
+    public void updatingStylist_true() {
+        Stylist stylist = new Stylist("Yasmin","F","254");
+        stylist.save();
+        stylist.update("Sam", "M", "67");
+        assertEquals("Sam", Stylist.find(stylist.getId()).getName());
+        assertEquals("M", Stylist.find(stylist.getId()).getGender());
+        assertEquals("67", Stylist.find(stylist.getId()).getContact());
+    }
+    // test to find stylist
+    @Test
+    public void findStylist_true() {
+        Stylist stylist = new Stylist("Zak","F","49");
+        stylist.save();
+        assertEquals("Zak", Stylist.find(stylist.getId()).getName());
+    }
+
 }
