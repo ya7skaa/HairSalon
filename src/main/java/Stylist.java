@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.sql2o.*;
 
@@ -6,11 +7,13 @@ public class Stylist {
     private String name;
     private String gender;
     private String contact;
+    private List<Client> clients;
 
     public Stylist(String name, String gender, String contact) {
         this.name = name;
         this.gender = gender;
         this.contact = contact;
+        clients = new ArrayList<>();
     }
     public int getId(){
         return id;
@@ -36,7 +39,7 @@ public class Stylist {
     }
     // method to return all Stylist information from our stylist database table in the all() method:
     public static List<Stylist> all() {
-        String sql = "SELECT id, name, gender, contact FROM stylists ORDER BY name";
+        String sql = "SELECT id, name, gender, contact FROM stylists ORDER BY id";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Stylist.class);
         }
@@ -53,15 +56,15 @@ public class Stylist {
                     .getKey();
         }
     }
-    // method for getting clients from stylist object
-    public List<Client> getClients() {
-        try(Connection con = DB.sql2o.open()) {
-            String sql = "SELECT * FROM clients where stylist_id=:id ORDER BY name";
-            return con.createQuery(sql)
-                    .addParameter("id", this.id)
-                    .executeAndFetch(Client.class);
-        }
-    }
+//    // method for getting clients from stylist object
+//    public List<Client> getClients() {
+//        try(Connection con = DB.sql2o.open()) {
+//            String sql = "SELECT * FROM clients where stylist_id=:id ORDER BY name";
+//            return con.createQuery(sql)
+//                    .addParameter("id", this.id)
+//                    .executeAndFetch(Client.class);
+//        }
+//    }
     //method for updating the stylist object
     public void update(String name, String gender, String contact) {
         try (Connection con = DB.sql2o.open()) {
@@ -84,6 +87,14 @@ public class Stylist {
         try(Connection con = DB.sql2o.open()) {
             String sql = "UPDATE clients SET stylist_id = 0 WHERE stylist_id = :id;";
             con.createQuery(sql).addParameter("id", id).executeUpdate();
+        }
+    }
+    public List<Client> getClients() {
+        try(Connection con = DB.sql2o.open()) {
+            String sql = "SELECT * FROM clients where stylist_id=:id";
+            return con.createQuery(sql)
+                    .addParameter("id", this.id)
+                    .executeAndFetch(Client.class);
         }
     }
 

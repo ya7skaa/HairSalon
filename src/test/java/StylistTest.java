@@ -2,6 +2,7 @@ import org.junit.Rule;
 import org.sql2o.*;
 import org.junit.*;
 import static org.junit.Assert.*;
+import java.util.Arrays;
 
 
 public class StylistTest {
@@ -52,6 +53,17 @@ public class StylistTest {
         int stylistId = stylist.getId();
         stylist.delete();
         assertEquals(null, Stylist.find(stylistId));
+    }
+    @Test
+    public void getTasks_retrievesALlTasksFromDatabase_tasksList() {
+        Stylist myStylist = new Stylist("Yasmin","F","254");
+        myStylist.save();
+        Client firstClient = new Client("Yasmin","F","254",myStylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("Zak","F","254",myStylist.getId());
+        secondClient.save();
+        Client[] clients = new Client[] { firstClient, secondClient };
+        assertTrue(myStylist.getClients().containsAll(Arrays.asList(clients)));
     }
 
 }

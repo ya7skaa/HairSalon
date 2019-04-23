@@ -60,7 +60,7 @@ public class Client {
 
     // method for updating Client.all() method's SQL query to include Stylist Id.
     public static List<Client> all() {
-        String sql = "SELECT id, name, gender, contact, stylist_id FROM clients ORDER BY name";
+        String sql = "SELECT id, name,gender,contact, stylist_id FROM clients";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Client.class);
         }
@@ -96,6 +96,21 @@ public class Client {
         try(Connection con = DB.sql2o.open()) {
             String sql = "DELETE FROM clients WHERE id = :id;";
             con.createQuery(sql).addParameter("id", id).executeUpdate();
+        }
+    }
+    public int getStylistId() {
+        return stylist_id;
+    }
+    @Override
+    public boolean equals(Object otherClient){
+        if (!(otherClient instanceof Client)) {
+            return false;
+        } else {
+            Client newClient = (Client) otherClient;
+            return this.getName().equals(newClient.getName()) && this.getGender().equals(newClient.getGender()) &&
+                    this.getContact().equals(newClient.getContact()) &&
+                    this.getId() == newClient.getId() &&
+                    this.getStylistId() == newClient.getStylistId();
         }
     }
 

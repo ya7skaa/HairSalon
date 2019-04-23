@@ -54,6 +54,14 @@ public class ClientTest {
         client.delete();
         assertEquals(null, Client.find(clientId));
     }
-
+    @Test
+    public void save_savesStylistIdIntoDB_true() {
+        Stylist stylist = new Stylist("Yasmin", "F","254");
+        stylist.save();
+        Client client = new Client("Yasmin","F","254",stylist.getId());
+        client.save();
+        Client savedClient = Client.find(client.getId());
+        assertEquals(savedClient.getStylistId(), stylist.getId());
+    }
 }
 

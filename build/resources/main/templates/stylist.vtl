@@ -1,56 +1,103 @@
-<h2>$stylist.getName() Clients:</h2>
-        #if($stylist.getClients().size()>0)
-<div class ="row" >
-<div class="col-md-2">
-    ID
-</div>
-<div class="col-md-4">
-    NAME
-</div>
-<div class="col-md-2">
-    GENDER
-</div>
-<div class="col-md-2">
-    CONTACT
-</div>
-<div class="col-md-2">
-    ACTION
-</div>
-</div>
+<!--<h2>$stylist.getName() Clients:</h2>-->
+<!--        #if($stylist)-->
+<!--<h1>$stylist.getName()clients:</h1>-->
+<!--<div class ="row" >-->
+<!--<div class="col-md-2">-->
+<!--    ID-->
+<!--</div>-->
+<!--<div class="col-md-4">-->
+<!--    NAME-->
+<!--</div>-->
+<!--<div class="col-md-2">-->
+<!--    GENDER-->
+<!--</div>-->
+<!--<div class="col-md-2">-->
+<!--    CONTACT-->
+<!--</div>-->
+<!--<div class="col-md-2">-->
+<!--    ACTION-->
+<!--</div>-->
+<!--</div>-->
 
-<ol>
-    #foreach($client in $stylist.getClients())
+<!--<ol>-->
+<!--    #foreach($client in $stylist.getClients())-->
 
-    <div class ="row" >
-        <div class="col-md-2">
+<!--    <div class ="row" >-->
+<!--        <div class="col-md-2">-->
 
-        </div>
-        <div class="col-md-4">
-            $client.getName()
-        </div>
-        <div class="col-md-2">
-            $client.getGender()
-        </div>
-        <div class="col-md-2">
-            $client.getContact()
-        </div>
-        <div class="col-md-2">
-            <div class="col-md-2">
-                <a href="/clients/$client.getId()/edit"><img src="/images/e2.png" alt="Edit"></a>
-            </div>
-            <div class="col-md-2">
-                <form action="/clients/$client.getId()/delete" method="post">
-                    <input type="image" src="/images/delete.png" alt="Delete">
-                </form>
-            </div>
-        </div>
+<!--        </div>-->
+<!--        <div class="col-md-4">-->
+<!--            $client.getName()-->
+<!--        </div>-->
+<!--        <div class="col-md-2">-->
+<!--            $client.getGender()-->
+<!--        </div>-->
+<!--        <div class="col-md-2">-->
+<!--            $client.getContact()-->
+<!--        </div>-->
+<!--        <div class="col-md-2">-->
+<!--            <div class="col-md-2">-->
+<!--                <a href="/clients/$client.getId()/edit"><img src="/images/e2.png" alt="Edit"></a>-->
+<!--            </div>-->
+<!--            <div class="col-md-2">-->
+<!--                <form action="/clients/$client.getId()/delete" method="post">-->
+<!--                    <input type="image" src="/images/delete.png" alt="Delete">-->
+<!--                </form>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--    #end-->
+<!--</ol>-->
+<!--   #else-->
+<!--<h3>NO CLIENTS ASSIGNED TO THIS STYLIST</h3>-->
+<!--#end-->
+
+
+<!--    <a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn btn-info">New Client</button></a>-->
+
+
+        #if ($stylist)
+<h1>$stylist.getName()clients:</h1>
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Contacts</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            #foreach($client in $stylist.getClients())
+
+            <tr>
+
+                <td> $client.getId()</td>
+                <td>$stylist.getName()</td>
+                <td>$client.getGender()</td>
+                <td>$client.getContact()</td>
+                <td class="text-center">
+                    <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                    <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                </td>
+
+            </tr>
+
+            #end
+        </table>
     </div>
 
     #end
-</ol>
-   #else
-<h3>NO CLIENTS ASSIGNED TO THIS STYLIST</h3>
-#end
 
 
-    <a href="/stylists/$stylist.getId()/clients/new"><button type="button" class="btn btn-info">New Client</button></a>
+    <button><a href="/clients/new">Add New Client</a></button>
+</div>
+
+
+
