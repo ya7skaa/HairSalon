@@ -3,6 +3,9 @@ import java.util.List;
 import org.sql2o.*;
 public class Client {
 
+
+
+
     private int id;
     private String name;
     private String gender;
@@ -55,7 +58,7 @@ public class Client {
         }
     }
 
-    // method forv updating Client.all() method's SQL query to include Sylist Id.
+    // method for updating Client.all() method's SQL query to include Stylist Id.
     public static List<Client> all() {
         String sql = "SELECT id, name, gender, contact, stylist_id FROM clients ORDER BY name";
         try(Connection con = DB.sql2o.open()) {
