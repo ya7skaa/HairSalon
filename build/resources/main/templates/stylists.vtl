@@ -1,14 +1,55 @@
-<h1>All Stylists</h1>
+<!--<h1>All Stylists</h1>-->
 
-        #foreach ($stylist in $stylists)
-        Id: $stylist.getId()
-        Name: $stylist.getName()
-        Gender : $stylist.getGender()
-        Contact: $stylist.getContact()
+
+<!--        #foreach ($stylist in $stylists)-->
+<!--        Id: $stylist.getId()-->
+<!--        Name: $stylist.getName()-->
+<!--        Gender : $stylist.getGender()-->
+<!--        Contact: $stylist.getContact()-->
+<!--<br>-->
+<!--<a href="/stylists/$stylist.getId()">View Clients</a>-->
+<!--</br>-->
+
+<!--        #end-->
+
+<!--<a href="/stylists/new">Add New Stylist</a>-->
+
+
+
+<div class="container">
+    <div class="row col-md-6 col-md-offset-2 custyle">
+        <table class="table table-striped custab">
+            <thead>
+
+            <tr>
+
+                <th>ID</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Contacts</th>
+                <th class="text-center">Action</th>
+            </tr>
+            </thead>
+            #foreach ($stylist in $stylists)
+            <tr>
+
+                <td> $stylist.getId()</td>
+                <td> $stylist.getName()</td>
+                <td>$stylist.getGender()</td>
+                <td>$stylist.getContact()</td>
+                <td class="text-center"><a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a> <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a></td>
+
+            </tr>
+            #end
+        </table>
+    </div>
+</div>
+
 <br>
 <a href="/stylists/$stylist.getId()">View Clients</a>
 </br>
 
-        #end
+
 
 <a href="/stylists/new">Add New Stylist</a>
+
