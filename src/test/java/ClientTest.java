@@ -28,12 +28,12 @@ public class ClientTest {
         assertEquals("Abdi", Client.find(client.getId()).getName());
         assertEquals("M", Client.find(client.getId()).getGender());
         assertEquals("254", Client.find(client.getId()).getContact());
-        assertEquals(2, Client.find(client.getId()).getStylist());
+        assertEquals(1, Client.find(client.getId()).getStylist());
     }
     //delete client test
     @Test
     public void delete_deletesClient_true() {
-        Client client = new Client("Ninja","M","100", 2);
+        Client client = new Client("Yasmin","F","254",1);
         client.save();
         int clientId = client.getId();
         client.delete();
