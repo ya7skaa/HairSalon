@@ -30,5 +30,15 @@ public class ClientTest {
         assertEquals("254", Client.find(client.getId()).getContact());
         assertEquals(2, Client.find(client.getId()).getStylist());
     }
+    //delete client test
+    @Test
+    public void delete_deletesClient_true() {
+        Client client = new Client("Ninja","M","100", 2);
+        client.save();
+        int clientId = client.getId();
+        client.delete();
+        assertEquals(null, Client.find(clientId));
+    }
+
 }
 
