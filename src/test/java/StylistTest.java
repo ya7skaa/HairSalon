@@ -44,5 +44,14 @@ public class StylistTest {
         stylist.save();
         assertEquals("Zak", Stylist.find(stylist.getId()).getName());
     }
+    // test to delete stylist
+    @Test
+    public void delete_deletesStylist_true() {
+        Stylist stylist = new Stylist("Zak","F","49");
+        stylist.save();
+        int stylistId = stylist.getId();
+        stylist.delete();
+        assertEquals(null, Stylist.find(stylistId));
+    }
 
 }
