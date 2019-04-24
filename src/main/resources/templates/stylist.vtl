@@ -58,7 +58,7 @@
 
 
         #if ($stylist)
-<h1>$stylist.getName()clients:</h1>
+<h1>$stylist.getName()'s clients:</h1>
 
 <div class="container">
     <div class="row col-md-6 col-md-offset-2 custyle">
@@ -79,12 +79,16 @@
             <tr>
 
                 <td> $client.getId()</td>
-                <td>$stylist.getName()</td>
+                <td>$client.getName()</td>
                 <td>$client.getGender()</td>
                 <td>$client.getContact()</td>
                 <td class="text-center">
-                    <a class='btn btn-info btn-xs' href="#"><span class="glyphicon glyphicon-edit"></span> Edit</a>
-                    <a href="#" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+
+                    <a class='btn btn-info btn-xs' href="/stylists/$stylist.getId()/clients/$client.getId()"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+
+                    <form action="/client/delete/$client.getId()" method="post">
+                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                    </form>
                 </td>
 
             </tr>
@@ -96,7 +100,7 @@
     #end
 
 
-    <button><a href="/clients/new">Add New Client</a></button>
+    <button><a href="/stylist/$stylist.getId()/clients/new">Add New Client</a></button>
 </div>
 
 

@@ -39,7 +39,7 @@ public class ClientTest {
     public void updatingClient_true() {
         Client client = new Client("Yasmin","F","254",1);
         client.save();
-        client.update("Abdi", "M", "254", 1);
+        client.update("Abdi", "M", "254");
         assertEquals("Abdi", Client.find(client.getId()).getName());
         assertEquals("M", Client.find(client.getId()).getGender());
         assertEquals("254", Client.find(client.getId()).getContact());

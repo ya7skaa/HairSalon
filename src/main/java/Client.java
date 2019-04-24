@@ -60,7 +60,7 @@ public class Client {
 
     // method for updating Client.all() method's SQL query to include Stylist Id.
     public static List<Client> all() {
-        String sql = "SELECT id, name,gender,contact, stylist_id FROM clients";
+        String sql = "SELECT id, name,gender,contact, stylist_id FROM clients ORDER BY id";
         try(Connection con = DB.sql2o.open()) {
             return con.createQuery(sql).executeAndFetch(Client.class);
         }
@@ -79,14 +79,13 @@ public class Client {
         }
     }
     //method for updating a client object
-    public void update(String name, String gender, String contact, int stylist_id) {
+    public void update(String name, String gender, String contact) {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "UPDATE clients SET name = :name, gender = :gender, contact = :contact, stylist_id = :stylist_id WHERE id = :id";
+            String sql = "UPDATE clients SET name = :name, gender = :gender, contact = :contact WHERE id = :id";
             con.createQuery(sql)
                     .addParameter("name", name)
                     .addParameter("gender", gender)
                     .addParameter("contact", contact)
-                    .addParameter("stylist_id", stylist_id)
                     .addParameter("id", id)
                     .executeUpdate();
         }

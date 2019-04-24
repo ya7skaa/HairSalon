@@ -2,7 +2,7 @@
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <div class="panel panel-info" >
             <div class="panel-heading">
-                <div class="panel-title">Stylists</div>
+                <div class="panel-title">Edit Clients</div>
 
             </div>
 
@@ -10,23 +10,22 @@
 
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
 
-                <form  action="/stylists" method="post" id="stylistform" class="form-horizontal" >
-
-
+                <form  action="/stylists/$client.getStylistId()/clients/$client.getId()" method="post" id="stylistform" class="form-horizontal" >
+                    <input id="stylist_id" name="stylist_id" type="hidden" value="$stylist.getId()"/>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="name" type="text" class="form-control" name="name" value="" placeholder="name">
+                        <input id="name" type="text" class="form-control" name="name"  placeholder="name"/>
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-link"></i></span>
-                        <input id="gender" type="text" class="form-control" name="gender" placeholder="Gender">
+                        <input id="gender" type="text" class="form-control" name="gender" placeholder="Gender"/>
                     </div>
 
                     <div style="margin-bottom: 25px" class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-tasks"></i></span>
-                        <input id="contact" type="text" class="form-control" name="contact" value="" placeholder="contact">
+                        <input id="contact" type="text" class="form-control" name="contact" value="" placeholder="contact"/>
                     </div>
 
 
@@ -36,10 +35,10 @@
 
 
                     <div style="margin-top:10px" class="form-group">
-
+                        <!-- Button -->
 
                         <div class="col-sm-12 controls">
-                                <button id="submit-stylist" type="submit" class="btn btn-info">Add Stylist!</button>
+                            <button id="submit-stylist" type="submit" class="btn btn-info">Submit Changes!</button>
 
                         </div>
                     </div>
@@ -47,6 +46,7 @@
 
 
                 </form>
+
 
 
 
