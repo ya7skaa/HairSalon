@@ -118,9 +118,9 @@ public class App {
             String gender = request.queryParams("gender");
             String contact = request.queryParams("contact");
 
-            Client newClient = new Client(name, gender, contact,stylist.getId());
+            Client newClient = new Client(name, gender, contact,stylist_id);
             newClient.save();
-//            response.redirect("/stylists/"+ stylistId);
+//            response.redirect("/stylists");
             model.put("template", "templates/stylist.vtl");
             return new ModelAndView(model,layout);
         }, new VelocityTemplateEngine());
@@ -130,5 +130,18 @@ public class App {
 //            model.put("template", "templates/clients.vtl");
 //            return new ModelAndView(model, layout);
 //        }, new VelocityTemplateEngine());
+
+        //Updating stylist Details
+        post("/stylists/:id/edit", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+            String name = request.queryParams("name");
+            String gender = request.queryParams("gender");
+            String contact = request.queryParams("contact");
+            stylist.update(name.toUpperCase(), gender, contact);
+            model.put("template", "templates/stylists.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
+
     }
 }
