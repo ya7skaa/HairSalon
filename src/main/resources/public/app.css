@@ -1,5 +1,5 @@
 body{
-background-image: url("https://images.unsplash.com/photo-1546897831-9d06ed31bed1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1673&q=80");
+background-image: url("https://images.unsplash.com/photo-1544816135-b44f18b3c5d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60");
 background-size:cover;
 background-repeat:no-repeat;
 background=position:center center;
@@ -70,7 +70,34 @@ ul, ol {
     }
     #heading{
     text-align:center;
+    font-family: 'Ewert', cursive;
+    border: 2px solid #2d3246;
+    color: #f18c8e;
     }
 .jumbotron{
     background-color:rgba(0,0,0,0.2);
     }
+    #home{
+    margin: auto;
+    margin-left:1%;
+    margin-right:10%;
+    }
+    #intro{
+    text-align:center;
+    }
+    #top{
+    font-family: 'Gravitas One', cursive;
+    color:#f30067;
+    }
+.client{
+padding-top:80px;
+margin:auto;
+width:30%;
+}
+.about{
+ font-family: 'Gravitas One', cursive;
+    color:#305f72;
+}
+.quote{
+color:#f30067;
+}

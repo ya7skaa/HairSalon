@@ -86,8 +86,8 @@
 
                     <a class='btn btn-info btn-xs' href="/stylists/$stylist.getId()/clients/$client.getId()"><span class="glyphicon glyphicon-edit"></span> Edit</a>
 
-                    <form action="/client/delete/$client.getId()" method="post">
-                      <a class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</a>
+                    <form action="" method="post">
+                      <button type="submit" class="btn btn-danger btn-xs"><span class="glyphicon glyphicon-remove"></span> Del</button>
                     </form>
                 </td>
 
@@ -100,7 +100,7 @@
     #end
 
 
-    <button><a href="/stylist/$stylist.getId()/clients/new">Add New Client</a></button>
+    <a class="client" href="/stylist/$stylist.getId()/clients/new">Add New Client</a>
 </div>
 
 
