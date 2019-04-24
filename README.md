@@ -3,7 +3,7 @@
 #### By **Yasmin Abdirahman**
 
 ## Description
--
+
 An experiment in CRUD, Databases, and RESTful routing. As a user at a hair salon, you are be able to add a Stylist to a database and view their info, as well as add a Client to that stylist and also see their info. You are able to update the names of Stylists, and Clients, as well as completely Delete either.
 
 
