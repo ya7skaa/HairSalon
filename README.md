@@ -40,7 +40,8 @@ In PSQL:
 4.Gradle used to manage dependencies https://gradle.org/
 5.Junit for testing Java backend http://junit.org/junit4/
 6. PostgreSQL https://www.postgresql.org/
-7  HTML
+
+7. HTML
 8. CSS
 
 
