@@ -90,9 +90,14 @@ ul, ol {
     color:#f30067;
     }
 .client{
-padding-top:80px;
-margin:auto;
-width:30%;
+
+margin-left:50%;
+
+}
+.stylist{
+
+margin-left:50%;
+
 }
 .about{
  font-family: 'Gravitas One', cursive;
