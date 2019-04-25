@@ -45,9 +45,9 @@ In PSQL:
 8. CSS
 
 
-<img src="hair1.png">
-<img src="hair2.png">
-<img src="hair3.png">
+![](images/hair1.png)
+![](images/hair2.png)
+![](images/hair3.png)
 
 ## Known Bugs
 - A few of the bugs is the edit feature for the stylists isn't functional as well as the delete feature for the clients list.
